@@ -2,7 +2,7 @@
 
 A full-stack real-time project management dashboard built with React, TypeScript, Node.js, Express, PostgreSQL, Prisma and Socket.IO.
 
-Live Demo
+##Live Demo
 
 Live Application: https://velozity-dashboard-beta.vercel.app/
 
