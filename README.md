@@ -262,7 +262,7 @@ server/.env
 Example:
 
 ```env
-DATABASE_URL="postgresql://postgres:YOUR_PASSWORD@localhost:5432/velozity_dashboard"
+DATABASE_URL="postgresql://postgres:1234567890@localhost:5432/velozity_dashboard"
 
 JWT_ACCESS_SECRET="your-access-secret"
 JWT_REFRESH_SECRET="your-refresh-secret"
@@ -272,7 +272,7 @@ PORT=5000
 CLIENT_URL="http://localhost:5173"
 ```
 
-Never commit real secrets to Git.
+
 
 ## Backend Setup
 
@@ -503,30 +503,3 @@ Before production deployment:
                          Activity events
 ```
 
-## License
-
-This project was created as a technical assessment implementation for Velozity Global Solutions.
-
-````
-
-### Now don't spend time testing README.
-
-Next we should do **deployment configuration**.
-
-Before deployment, run these two commands quickly:
-
-```bash
-cd C:\velozity\velozity_dashboard\server
-npx tsc --noEmit
-````
-
-and:
-
-```bash
-cd C:\velozity\velozity_dashboard\client
-npm run build
-```
-
-Then tell me whether both pass.
-
-After that, we'll go straight to **GitHub + production environment + Vercel**.
