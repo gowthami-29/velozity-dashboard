@@ -51,10 +51,10 @@ const DashboardPage = ({
     useState("");
 
   const [statusFilter, setStatusFilter] =
-    useState<DashboardFilters["status"]>("");
+  useState<DashboardFilters["status"] | "">("");
 
-  const [priorityFilter, setPriorityFilter] =
-    useState<DashboardFilters["priority"]>("");
+const [priorityFilter, setPriorityFilter] =
+  useState<DashboardFilters["priority"] | "">("");
 
   useEffect(() => {
     const loadDashboard = async () => {

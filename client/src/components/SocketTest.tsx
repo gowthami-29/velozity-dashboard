@@ -1,5 +1,6 @@
+
 import { useEffect, useState } from "react";
-import { socket } from "../services/socket";
+import { getSocket } from "../services/socket";
 
 interface TaskStatusUpdate {
   taskId: string;
@@ -17,6 +18,8 @@ interface TaskStatusUpdate {
 const PROJECT_ID = "b179e0f3-08e0-4749-b6aa-358f4b576432";
 
 const SocketTest = () => {
+  const socket = getSocket();
+
   const [connected, setConnected] = useState(socket.connected);
   const [lastUpdate, setLastUpdate] =
     useState<TaskStatusUpdate | null>(null);
@@ -31,10 +34,6 @@ const SocketTest = () => {
 
       console.log("Joined project:", PROJECT_ID);
     };
-    if (socket.connected) {
-      setConnected(true);
-      socket.emit("join-project", PROJECT_ID);
-    }
 
     const handleDisconnect = () => {
       setConnected(false);
@@ -50,6 +49,7 @@ const SocketTest = () => {
     socket.on("task-status-updated", handleTaskUpdate);
 
     if (socket.connected) {
+      setConnected(true);
       socket.emit("join-project", PROJECT_ID);
     }
 
@@ -60,7 +60,7 @@ const SocketTest = () => {
       socket.off("disconnect", handleDisconnect);
       socket.off("task-status-updated", handleTaskUpdate);
     };
-  }, []);
+  }, [socket]);
 
   return (
     <div>
@@ -96,3 +96,4 @@ const SocketTest = () => {
 };
 
 export default SocketTest;
+
