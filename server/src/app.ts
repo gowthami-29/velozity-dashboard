@@ -1,3 +1,4 @@
+
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -15,11 +16,16 @@ import { errorHandler } from "./middlewares/error.middleware.js";
 
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:5174",
+  process.env.CLIENT_URL,
+].filter(Boolean) as string[];
+
 app.use(
   cors({
-    origin: ["http://localhost:5173",
-    "http://localhost:5174",]
-,    credentials: true,
+    origin: allowedOrigins,
+    credentials: true,
   })
 );
 
